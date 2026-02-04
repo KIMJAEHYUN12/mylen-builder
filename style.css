@@ -1,131 +1,27 @@
 :root {
-    --primary-color: #4a90e2;
-    --background-color: #f0f4f8;
+    --primary-color: #4CAF50; /* Green */
+    --background-color: #e8f5e9; /* Light green background */
     --text-color: #333;
     --white: #fff;
-    --shadow-color: rgba(0, 0, 0, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
-body.dark-mode {
-    --primary-color: #9bbff9;
-    --background-color: #282c36;
-    --text-color: #e0e0e0;
-    --white: #3a3f4a;
-    --shadow-color: rgba(0, 0, 0, 0.4);
-}
-
-body.blue-mode {
-    --primary-color: #3f51b5; /* Deeper blue */
-    --background-color: #e3f2fd; /* Light blue background */
-    --text-color: #212121; /* Dark text for contrast */
-    --white: #ffffff; /* White containers */
-    --shadow-color: rgba(0, 0, 0, 0.2); /* Slightly darker shadow */
-}
-
-/* Global Body Styling */
 body {
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     display: flex;
-    flex-direction: column; /* Changed to column to stack main content and form */
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Changed to min-height to accommodate more content */
+    min-height: 100vh;
     margin: 0;
-    padding: 20px; /* Add some padding for overall layout */
-    box-sizing: border-box; /* Include padding in element's total width and height */
-    position: relative; /* For absolute positioning of theme toggle button */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-/* Theme Toggle Button Styling */
-.theme-toggle-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-    background-color: var(--primary-color);
-    color: var(--white);
-    border: none;
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.theme-toggle-btn:hover {
-    background-color: var(--text-color);
-}
-
-/* Main Content Container Styling */
 .container {
     background-color: var(--white);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px var(--shadow-color);
-    text-align: center;
-    max-width: 500px;
-    width: 100%; /* Ensure it takes full width up to max-width */
-    margin-bottom: 2rem; /* Space between main content and form */
-}
-
-h1 {
-    color: var(--primary-color);
-    margin-bottom: 2rem;
-}
-
-.snack-display {
-    min-height: 150px; /* Increased min-height for image */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2rem;
-    padding: 1rem;
-    border: 1px dashed var(--primary-color);
-    border-radius: 10px;
-}
-
-.snack-display h2 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-    font-size: 1.8rem;
-}
-
-.snack-display p {
-    font-size: 1.1rem;
-    line-height: 1.5;
-}
-
-.snack-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    max-height: 150px; /* Adjusted max-height for images */
-    object-fit: cover; /* Changed to cover for better image display within bounds */
-}
-
-.recommend-btn {
-    background-color: var(--primary-color);
-    color: var(--white);
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.recommend-btn:hover {
-    background-color: #357abd;
-}
-
-/* Contact Form Styling */
-.contact-form-container {
-    background-color: var(--white);
-    padding: 2rem;
+    padding: 3rem;
     border-radius: 15px;
     box-shadow: 0 10px 20px var(--shadow-color);
     text-align: center;
@@ -133,61 +29,61 @@ h1 {
     width: 100%;
 }
 
-.contact-form-container h2 {
+h1 {
     color: var(--primary-color);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+    font-size: 2.2rem;
 }
 
-.contact-form-container form {
+.lottery-numbers {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    text-align: left;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 3rem;
+    min-height: 80px; /* Ensure space even when no numbers are displayed */
 }
 
-.contact-form-container label {
+.number-ball {
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 1.8rem;
     font-weight: bold;
-    color: var(--text-color);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: pop-in 0.3s ease-out forwards;
+    opacity: 0;
+    transform: scale(0.5);
 }
 
-.contact-form-container input[type="text"],
-.contact-form-container input[type="email"],
-.contact-form-container textarea {
-    width: calc(100% - 20px); /* Adjust for padding */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: var(--background-color);
-    color: var(--text-color);
+@keyframes pop-in {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
-.contact-form-container input[type="text"]:focus,
-.contact-form-container input[type="email"]:focus,
-.contact-form-container textarea:focus {
-    border-color: var(--primary-color);
-    outline: none;
-}
-
-.contact-form-container button[type="submit"] {
+#generate-button {
     background-color: var(--primary-color);
     color: var(--white);
     border: none;
-    padding: 1rem 2rem;
-    font-size: 1rem;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    align-self: center; /* Center the submit button */
-    margin-top: 1rem;
+    transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
-.contact-form-container button[type="submit"]:hover {
-    background-color: #357abd;
+#generate-button:hover {
+    background-color: #43A047; /* Slightly darker green */
+    transform: translateY(-2px);
 }
 
-.form-info {
-    font-size: 0.8rem;
-    color: var(--text-color);
-    margin-top: 1.5rem;
+#generate-button:active {
+    transform: translateY(0);
 }
