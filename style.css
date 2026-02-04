@@ -14,12 +14,28 @@ body.dark-mode {
     --shadow-color: rgba(0, 0, 0, 0.4);
 }
 
+/* Global Body Styling */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column; /* Changed to column to stack main content and form */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Changed to min-height to accommodate more content */
+    margin: 0;
+    padding: 20px; /* Add some padding for overall layout */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+    position: relative; /* For absolute positioning of theme toggle button */
+}
+
 /* Theme Toggle Button Styling */
 .theme-toggle-btn {
-    position: absolute; /* Changed to absolute */
-    top: 20px; /* Position from top */
-    right: 20px; /* Position from right */
-    z-index: 1000; /* Ensure it's above other content */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
     background-color: var(--primary-color);
     color: var(--white);
     border: none;
@@ -34,25 +50,16 @@ body.dark-mode {
     background-color: var(--text-color);
 }
 
-body {
-    font-family: 'Helvetica Neue', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    position: relative;
-}
-
-.container { /* Renamed from .lotto-container */
+/* Main Content Container Styling */
+.container {
     background-color: var(--white);
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 10px 20px var(--shadow-color);
     text-align: center;
     max-width: 500px;
+    width: 100%; /* Ensure it takes full width up to max-width */
+    margin-bottom: 2rem; /* Space between main content and form */
 }
 
 h1 {
@@ -61,7 +68,7 @@ h1 {
 }
 
 .snack-display {
-    min-height: 100px;
+    min-height: 150px; /* Increased min-height for image */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,11 +95,11 @@ h1 {
     height: auto;
     border-radius: 8px;
     margin-bottom: 1rem;
-    max-height: 200px; /* Limit image height */
-    object-fit: contain; /* Ensure the image fits within bounds without cropping */
+    max-height: 150px; /* Adjusted max-height for images */
+    object-fit: cover; /* Changed to cover for better image display within bounds */
 }
 
-.recommend-btn { /* Renamed from .generate-btn */
+.recommend-btn {
     background-color: var(--primary-color);
     color: var(--white);
     border: none;
@@ -105,4 +112,74 @@ h1 {
 
 .recommend-btn:hover {
     background-color: #357abd;
+}
+
+/* Contact Form Styling */
+.contact-form-container {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px var(--shadow-color);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+.contact-form-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.contact-form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+}
+
+.contact-form-container label {
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.contact-form-container input[type="text"],
+.contact-form-container input[type="email"],
+.contact-form-container textarea {
+    width: calc(100% - 20px); /* Adjust for padding */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.contact-form-container input[type="text"]:focus,
+.contact-form-container input[type="email"]:focus,
+.contact-form-container textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.contact-form-container button[type="submit"] {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center; /* Center the submit button */
+    margin-top: 1rem;
+}
+
+.contact-form-container button[type="submit"]:hover {
+    background-color: #357abd;
+}
+
+.form-info {
+    font-size: 0.8rem;
+    color: var(--text-color);
+    margin-top: 1.5rem;
 }
