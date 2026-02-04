@@ -199,3 +199,16 @@ h1 {
 .dark-mode .contact-form-container button[type="submit"]:hover {
     background-color: #8bc34a; /* Lighter green for dark mode hover */
 }
+
+/* Disqus Comment Section Styling */
+#disqus_thread {
+    max-width: 800px; /* 최대 너비 설정 */
+    width: 100%;
+    margin-top: 2rem; /* 위쪽 여백 */
+    padding: 20px;
+    background-color: var(--white); /* 배경색 설정 */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px var(--shadow-color);
+    box-sizing: border-box; /* 패딩 포함 */
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
