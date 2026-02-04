@@ -16,6 +16,10 @@ body.dark-mode {
 
 /* Theme Toggle Button Styling */
 .theme-toggle-btn {
+    position: absolute; /* Changed to absolute */
+    top: 20px; /* Position from top */
+    right: 20px; /* Position from right */
+    z-index: 1000; /* Ensure it's above other content */
     background-color: var(--primary-color);
     color: var(--white);
     border: none;
@@ -24,7 +28,6 @@ body.dark-mode {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-bottom: 1rem; /* Added for spacing */
 }
 
 .theme-toggle-btn:hover {
@@ -40,6 +43,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    position: relative;
 }
 
 .container { /* Renamed from .lotto-container */
@@ -77,6 +81,15 @@ h1 {
 .snack-display p {
     font-size: 1.1rem;
     line-height: 1.5;
+}
+
+.snack-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    max-height: 200px; /* Limit image height */
+    object-fit: contain; /* Ensure the image fits within bounds without cropping */
 }
 
 .recommend-btn { /* Renamed from .generate-btn */
