@@ -35,7 +35,8 @@ const sojuSnacks = [
     { name: "곱창/막창", description: "쫄깃하고 고소한 곱창/막창은 소주 애호가들의 스테디셀러 안주입니다.", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Gopchang-gui.jpg/1200px-Gopchang-gui.jpg" },
     { name: "치킨", description: "바삭한 치킨에 시원한 소주는 언제나 옳습니다!", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Korean_fried_chicken_%28whole%29.jpg/1200px-Korean_fried_chicken_%28whole%29.jpg" },
     { name: "김치찌개", description: "얼큰한 김치찌개는 소주 한 잔 후 속을 개운하게 해줍니다.", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Kimchi-jjigae.jpg/1200px-Kimchi-jjigae.jpg" },
-    { name: "보쌈", description: "부드러운 보쌈 고기와 김치는 소주와 함께라면 든든한 한 끼 식사입니다.", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Bossam.jpg/1200px-Bossam.jpg" }
+    { name: "보쌈", description: "부드러운 보쌈 고기와 김치는 소주와 함께라면 든든한 한 끼 식사입니다.", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Bossam.jpg/1200px-Bossam.jpg" },
+    { name: "피자", description: "소주와 피자의 이색 조합! 의외의 꿀맛을 경험해보세요.", imageUrl: "pizza.jpg" }
 ];
 
 const recommendSnack = () => {
