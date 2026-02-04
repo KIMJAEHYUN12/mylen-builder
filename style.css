@@ -6,6 +6,31 @@
     --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
+body.dark-mode {
+    --primary-color: #9bbff9;
+    --background-color: #282c36;
+    --text-color: #e0e0e0;
+    --white: #3a3f4a;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Theme Toggle Button Styling */
+.theme-toggle-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 1rem; /* Added for spacing */
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--text-color);
+}
+
 body {
     font-family: 'Helvetica Neue', sans-serif;
     background-color: var(--background-color);
