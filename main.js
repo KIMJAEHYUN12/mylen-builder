@@ -12,15 +12,21 @@ if (currentTheme) {
 }
 
 themeToggleButton.addEventListener('click', () => {
+    let activeTheme = '';
     if (document.body.classList.contains('light-mode')) {
         document.body.classList.remove('light-mode');
         document.body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark-mode');
-    } else {
+        activeTheme = 'dark-mode';
+    } else if (document.body.classList.contains('dark-mode')) {
         document.body.classList.remove('dark-mode');
+        document.body.classList.add('blue-mode');
+        activeTheme = 'blue-mode';
+    } else { // Currently blue-mode, switch to light-mode
+        document.body.classList.remove('blue-mode');
         document.body.classList.add('light-mode');
-        localStorage.setItem('theme', 'light-mode');
+        activeTheme = 'light-mode';
     }
+    localStorage.setItem('theme', activeTheme);
 });
 
 

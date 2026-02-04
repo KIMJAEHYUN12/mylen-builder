@@ -14,6 +14,14 @@ body.dark-mode {
     --shadow-color: rgba(0, 0, 0, 0.4);
 }
 
+body.blue-mode {
+    --primary-color: #3f51b5; /* Deeper blue */
+    --background-color: #e3f2fd; /* Light blue background */
+    --text-color: #212121; /* Dark text for contrast */
+    --white: #ffffff; /* White containers */
+    --shadow-color: rgba(0, 0, 0, 0.2); /* Slightly darker shadow */
+}
+
 /* Global Body Styling */
 body {
     font-family: 'Helvetica Neue', sans-serif;
