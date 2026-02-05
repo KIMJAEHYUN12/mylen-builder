@@ -35,101 +35,106 @@
 
     <div class="teachable-machine-container">
         <h2>동물상 테스트</h2>
-        <div>Teachable Machine Image Model</div>
+        <p class="tm-instruction">이미지를 업로드하여 어떤 동물상인지 확인해보세요!</p>
         <input type="file" id="image-upload" accept="image/*">
-        <img id="uploaded-image" style="max-width: 200px; max-height: 200px; display: none;">
-        <button type="button" id="predict-button" style="display: none;">Predict Image</button>
-        <div id="label-container"></div>
+        <img id="uploaded-image" class="tm-uploaded-image" style="display: none;">
+        <button type="button" id="predict-button" class="tm-button" style="display: none;">결과 확인</button>
+        <div id="prediction-results" class="tm-prediction-results">
+            <!-- Prediction results will be displayed here -->
+        </div>
+        <div id="label-container" style="display: none;"></div> <!-- Hidden to manage results in tm-prediction-results -->
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-    <script type="text/javascript">
-        // More API functions here:
-        // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
-    
-        // the link to your model provided by Teachable Machine export panel
-        const URL = "https://teachablemachine.withgoogle.com/models/J3i5WvDds/";
-    
-        let model, labelContainer, maxPredictions; // webcam removed
-        let imageUpload, uploadedImage, predictButton; // new elements
-    
-        // Load the image model and set up event listeners
-        async function init() {
-            try {
-                const modelURL = URL + "model.json";
-                const metadataURL = URL + "metadata.json";
+        <script type="text/javascript">
+            // More API functions here:
+            // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
         
-                model = await tmImage.load(modelURL, metadataURL);
-                maxPredictions = model.getTotalClasses();
-
-                labelContainer = document.getElementById("label-container");
-                for (let i = 0; i < maxPredictions; i++) {
-                    labelContainer.appendChild(document.createElement("div"));
-                }
-                
-                imageUpload = document.getElementById("image-upload");
-                uploadedImage = document.getElementById("uploaded-image");
-                predictButton = document.getElementById("predict-button");
-
-                imageUpload.addEventListener("change", handleImageUpload);
-                predictButton.addEventListener("click", predictImage);
-
-                // Initial model load message
-                if (labelContainer) {
-                    labelContainer.innerHTML = "Model loaded. Upload an image to predict.";
-                }
-
-            } catch (error) {
-                console.error("Error initializing Teachable Machine model:", error);
-                if (labelContainer) {
-                    labelContainer.innerHTML = "Error loading test. Please check console for details.";
-                }
-            }
-        }
-
-        async function handleImageUpload(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    uploadedImage.src = e.target.result;
-                    uploadedImage.style.display = "block"; // Show the image
-                    predictButton.style.display = "block"; // Show predict button
-                    labelContainer.innerHTML = "Image uploaded. Click Predict."; // Clear previous predictions
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-    
-        // Predict image from the uploaded image element
-        async function predictImage() {
-            if (!model) {
-                labelContainer.innerHTML = "Model not loaded. Please try again.";
-                return;
-            }
-            if (!uploadedImage.src || uploadedImage.style.display === "none") {
-                labelContainer.innerHTML = "Please upload an image first.";
-                return;
-            }
-
-            labelContainer.innerHTML = "Predicting..."; // Show predicting message
-            const prediction = await model.predict(uploadedImage); // Predict using the image element
+            // the link to your model provided by Teachable Machine export panel
+            const URL = "https://teachablemachine.withgoogle.com/models/J3i5WvDds/";
+        
+            let model, maxPredictions; // webcam and labelContainer removed from global var
+            let imageUpload, uploadedImage, predictButton, predictionResultsContainer; // new elements & result container
+        
+            // Load the image model and set up event listeners
+            async function init() {
+                try {
+                    const modelURL = URL + "model.json";
+                    const metadataURL = URL + "metadata.json";
             
-            // Clear previous predictions
-            labelContainer.innerHTML = ''; 
-            for (let i = 0; i < maxPredictions; i++) {
-                const classPrediction =
-                    prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-                labelContainer.appendChild(document.createElement("div")).innerHTML = classPrediction;
+                    // Initialize elements
+                    imageUpload = document.getElementById("image-upload");
+                    uploadedImage = document.getElementById("uploaded-image");
+                    predictButton = document.getElementById("predict-button");
+                    predictionResultsContainer = document.getElementById("prediction-results");
+    
+                    // Initial message while loading model
+                    predictionResultsContainer.innerHTML = "모델 로딩 중...";
+    
+                    model = await tmImage.load(modelURL, metadataURL);
+                    maxPredictions = model.getTotalClasses();
+    
+                    // Clear initial message and set new one
+                    predictionResultsContainer.innerHTML = "모델 로드 완료! 이미지를 업로드하여 예측을 시작하세요.";
+                    
+                    imageUpload.addEventListener("change", handleImageUpload);
+                    predictButton.addEventListener("click", predictImage);
+    
+                } catch (error) {
+                    console.error("Error initializing Teachable Machine model:", error);
+                    if (predictionResultsContainer) {
+                        predictionResultsContainer.innerHTML = "오류 발생! 콘솔을 확인해주세요.";
+                    }
+                }
             }
-        }
-
-        // Initialize on DOMContentLoaded or similar, but for inline script, just call init()
-        // For the new file input approach, we need to ensure init() is called after DOM is ready.
-        // Given that the script is at the end of body, we can just call init().
-        init();
-    </script>
+    
+            async function handleImageUpload(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        uploadedImage.src = e.target.result;
+                        uploadedImage.style.display = "block"; // Show the image
+                        predictButton.style.display = "block"; // Show predict button
+                        predictionResultsContainer.innerHTML = "이미지 업로드 완료! '결과 확인' 버튼을 눌러 예측하세요."; // Update message
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        
+            // Predict image from the uploaded image element
+            async function predictImage() {
+                if (!model) {
+                    predictionResultsContainer.innerHTML = "모델이 로드되지 않았습니다. 잠시 후 다시 시도해주세요.";
+                    return;
+                }
+                if (!uploadedImage.src || uploadedImage.style.display === "none") {
+                    predictionResultsContainer.innerHTML = "이미지를 먼저 업로드해주세요.";
+                    return;
+                }
+    
+                predictionResultsContainer.innerHTML = "예측 중..."; // Show predicting message
+                
+                const prediction = await model.predict(uploadedImage); // Predict using the image element
+                
+                // Clear previous predictions
+                predictionResultsContainer.innerHTML = ''; 
+                for (let i = 0; i < maxPredictions; i++) {
+                    const classPrediction =
+                        `<div class="tm-prediction-item">
+                            <span class="tm-class-name">${prediction[i].className}</span>
+                            <span class="tm-probability">${(prediction[i].probability * 100).toFixed(1)}%</span>
+                        </div>`;
+                    predictionResultsContainer.innerHTML += classPrediction;
+                }
+            }
+    
+            // Initialize on DOMContentLoaded or similar, but for inline script, just call init()
+            // For the new file input approach, we need to ensure init() is called after DOM is ready.
+            // Given that the script is at the end of body, we can just call init().
+            init();
+        </script>
     <div id="disqus_thread"></div>
     <script>
         /**

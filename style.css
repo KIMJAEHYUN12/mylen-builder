@@ -269,3 +269,111 @@ h1 {
 .dark-mode #start-webcam-button:hover {
     background-color: #8bc34a; /* Lighter green for dark mode hover */
 }
+/* Teachable Machine File Input & Prediction Styling */
+.teachable-machine-container .tm-instruction {
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.teachable-machine-container #image-upload {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 1.5rem auto;
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.teachable-machine-container #image-upload::-webkit-file-upload-button {
+    visibility: hidden;
+}
+.teachable-machine-container #image-upload::before {
+    content: '이미지 선택';
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 10pt;
+    margin-right: 10px;
+}
+.teachable-machine-container #image-upload:hover::before {
+    background-color: #43A047; /* Slightly darker green */
+}
+.dark-mode .teachable-machine-container #image-upload:hover::before {
+    background-color: #8bc34a; /* Lighter green for dark mode hover */
+}
+
+.teachable-machine-container .tm-uploaded-image {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    margin: 1.5rem auto;
+    display: block;
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.teachable-machine-container .tm-button {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease, color 0.3s;
+    margin-top: 1rem;
+}
+
+.teachable-machine-container .tm-button:hover {
+    background-color: #43A047; /* Slightly darker green */
+}
+
+.dark-mode .teachable-machine-container .tm-button:hover {
+    background-color: #8bc34a; /* Lighter green for dark mode hover */
+}
+
+.teachable-machine-container .tm-prediction-results {
+    margin-top: 2rem;
+    min-height: 80px; /* Ensure space even when no results are displayed */
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.teachable-machine-container .tm-prediction-item {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    padding: 0.8rem 1.2rem;
+    background-color: var(--background-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.teachable-machine-container .tm-class-name {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.teachable-machine-container .tm-probability {
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
