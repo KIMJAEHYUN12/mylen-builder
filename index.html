@@ -1,161 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로또 번호 추첨기</title>
+    <title>재미있는 AI 이야기</title>
     <link rel="stylesheet" href="style.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8523090652113599"
-     crossorigin="anonymous"></script>
-    <meta name="google-adsense-account" content="ca-pub-8523090652113599">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <button class="theme-toggle-btn">테마 전환</button>
 
-    <div class="container">
-        <h1>로또 번호 추첨기</h1>
-        <div id="lottery-numbers" class="lottery-numbers">
-            <!-- Numbers will be displayed here -->
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">AI 이야기</a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="blog.html">블로그</a></li>
+                    <li><a href="tools.html">AI 도구</a></li>
+                    <li><a href="about.html">소개</a></li>
+                </ul>
+            </nav>
         </div>
-        <button id="generate-button">번호 생성</button>
-    </div>
+    </header>
 
-    <div class="contact-form-container">
-        <h2>제휴 문의</h2>
-        <form action="https://formspree.io/f/maqbrlyd" method="POST">
-            <label for="name">이름:</label>
-            <input type="text" id="name" name="name" required>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>AI, 일상에 스며들다</h1>
+                <p>인공지능의 흥미로운 세계를 탐험하고, 우리 삶을 어떻게 바꾸고 있는지 알아보세요.</p>
+            </div>
+        </section>
 
-            <label for="email">이메일:</label>
-            <input type="email" id="email" name="_replyto" required>
+        <section class="featured-post">
+            <div class="container">
+                <h2>추천 게시물</h2>
+                <article class="post-card featured">
+                    <div class="card-image">
+                        <img src="assets/images/featured-post.jpg" alt="AI가 그린 추상화">
+                    </div>
+                    <div class="card-content">
+                        <span class="post-category">AI 아트</span>
+                        <h3><a href="posts/post1.html">AI가 그린 그림, 예술일까? 창의성의 새로운 지평</a></h3>
+                        <p>DALL-E, Midjourney와 같은 이미지 생성 AI가 예술계에 던지는 질문들. AI의 창의성과 미래 예술의 모습을 탐구합니다.</p>
+                        <div class="post-meta">
+                            <span>2026년 2월 5일</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-            <label for="message">메시지:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+        <section class="recent-posts">
+            <div class="container">
+                <h2>최신 게시물</h2>
+                <div class="post-grid">
+                    <article class="post-card">
+                        <div class="card-image">
+                            <img src="assets/images/post2.jpg" alt="AI 챗봇과 대화하는 사람">
+                        </div>
+                        <div class="card-content">
+                            <span class="post-category">AI 활용</span>
+                            <h3><a href="posts/post2.html">나만의 AI 비서, ChatGPT 똑똑하게 활용하는 5가지 방법</a></h3>
+                            <p>단순한 대화를 넘어, ChatGPT를 업무와 학습에 효과적으로 사용하는 실용적인 팁들을 소개합니다.</p>
+                            <div class="post-meta">
+                                <span>2026년 2월 4일</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="post-card">
+                        <div class="card-image">
+                            <img src="assets/images/post3.jpg" alt="동물 얼굴 사진">
+                        </div>
+                        <div class="card-content">
+                            <span class="post-category">AI 도구</span>
+                            <h3><a href="tools.html">AI 동물상 테스트: 나는 어떤 동물과 닮았을까?</a></h3>
+                            <p>인공지능이 당신의 얼굴을 분석하여 어떤 동물상에 가까운지 알려드립니다. 지금 바로 확인해보세요!</p>
+                            <div class="post-meta">
+                                <span>2026년 2월 3일</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="post-card">
+                        <div class="card-content">
+                            <span class="post-category">미래 기술</span>
+                            <h3><a href="#">자율주행 자동차, 어디까지 왔을까?</a></h3>
+                            <p>레벨 0부터 5까지, 자율주행 기술의 현재와 미래, 그리고 우리 사회에 가져올 변화를 알아봅니다.</p>
+                             <div class="post-meta">
+                                <span>2026년 2월 2일</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
 
-            <button type="submit">보내기</button>
-        </form>
-    </div>
-
-    <div class="teachable-machine-container">
-        <h2>동물상 테스트</h2>
-        <p class="tm-instruction">이미지를 업로드하여 어떤 동물상인지 확인해보세요!</p>
-        <input type="file" id="image-upload" accept="image/*">
-        <img id="uploaded-image" class="tm-uploaded-image" style="display: none;">
-        <button type="button" id="predict-button" class="tm-button" style="display: none;">결과 확인</button>
-        <div id="prediction-results" class="tm-prediction-results">
-            <!-- Prediction results will be displayed here -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="about.html">소개</a></li>
+                    <li><a href="privacy-policy.html">개인정보처리방침</a></li>
+                    <li><a href="#">문의하기</a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                &copy; 2026 재미있는 AI 이야기. All rights reserved.
+            </div>
         </div>
-        <div id="label-container" style="display: none;"></div> <!-- Hidden to manage results in tm-prediction-results -->
-    </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-        <script type="text/javascript">
-            // More API functions here:
-            // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
-        
-            // the link to your model provided by Teachable Machine export panel
-            const URL = "https://teachablemachine.withgoogle.com/models/J3i5WvDds/";
-        
-            let model, maxPredictions; // webcam and labelContainer removed from global var
-            let imageUpload, uploadedImage, predictButton, predictionResultsContainer; // new elements & result container
-        
-            // Load the image model and set up event listeners
-            async function init() {
-                try {
-                    const modelURL = URL + "model.json";
-                    const metadataURL = URL + "metadata.json";
-            
-                    // Initialize elements
-                    imageUpload = document.getElementById("image-upload");
-                    uploadedImage = document.getElementById("uploaded-image");
-                    predictButton = document.getElementById("predict-button");
-                    predictionResultsContainer = document.getElementById("prediction-results");
-    
-                    // Initial message while loading model
-                    predictionResultsContainer.innerHTML = "모델 로딩 중...";
-    
-                    model = await tmImage.load(modelURL, metadataURL);
-                    maxPredictions = model.getTotalClasses();
-    
-                    // Clear initial message and set new one
-                    predictionResultsContainer.innerHTML = "모델 로드 완료! 이미지를 업로드하여 예측을 시작하세요.";
-                    
-                    imageUpload.addEventListener("change", handleImageUpload);
-                    predictButton.addEventListener("click", predictImage);
-    
-                } catch (error) {
-                    console.error("Error initializing Teachable Machine model:", error);
-                    if (predictionResultsContainer) {
-                        predictionResultsContainer.innerHTML = "오류 발생! 콘솔을 확인해주세요.";
-                    }
-                }
-            }
-    
-            async function handleImageUpload(event) {
-                const file = event.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        uploadedImage.src = e.target.result;
-                        uploadedImage.style.display = "block"; // Show the image
-                        predictButton.style.display = "block"; // Show predict button
-                        predictionResultsContainer.innerHTML = "이미지 업로드 완료! '결과 확인' 버튼을 눌러 예측하세요."; // Update message
-                    };
-                    reader.readAsDataURL(file);
-                }
-            }
-        
-            // Predict image from the uploaded image element
-            async function predictImage() {
-                if (!model) {
-                    predictionResultsContainer.innerHTML = "모델이 로드되지 않았습니다. 잠시 후 다시 시도해주세요.";
-                    return;
-                }
-                if (!uploadedImage.src || uploadedImage.style.display === "none") {
-                    predictionResultsContainer.innerHTML = "이미지를 먼저 업로드해주세요.";
-                    return;
-                }
-    
-                predictionResultsContainer.innerHTML = "예측 중..."; // Show predicting message
-                
-                const prediction = await model.predict(uploadedImage); // Predict using the image element
-                
-                // Clear previous predictions
-                predictionResultsContainer.innerHTML = ''; 
-                for (let i = 0; i < maxPredictions; i++) {
-                    const classPrediction =
-                        `<div class="tm-prediction-item">
-                            <span class="tm-class-name">${prediction[i].className}</span>
-                            <span class="tm-probability">${(prediction[i].probability * 100).toFixed(1)}%</span>
-                        </div>`;
-                    predictionResultsContainer.innerHTML += classPrediction;
-                }
-            }
-    
-            // Initialize on DOMContentLoaded or similar, but for inline script, just call init()
-            // For the new file input approach, we need to ensure init() is called after DOM is ready.
-            // Given that the script is at the end of body, we can just call init().
-            init();
-        </script>
-    <div id="disqus_thread"></div>
-    <script>
-        /**
-        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    
-        var disqus_config = function () {
-        this.page.url = 'https://mylen-24263782-5d205.web.app';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'lottery-page'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
-    
-        (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        s.src = 'https://mylen-builder-pages-dev.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-        })();
-    </script>    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </footer>
+
     <script src="main.js"></script>
 </body>
 </html>
