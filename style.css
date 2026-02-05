@@ -227,3 +227,111 @@ h2 {
 .copyright {
     font-size: 0.9rem;
 }
+
+/* Page Title Section */
+.page-title {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 2.5rem 0;
+}
+
+.page-title h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+}
+
+.page-title p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+/* Content Section for Static Pages */
+.content-section {
+    padding: 3rem 0;
+    background-color: var(--white);
+}
+
+.content-section .container {
+    max-width: 800px;
+}
+
+.content-section h2 {
+    text-align: left;
+    font-size: 2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.content-section p, .content-section li {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+/* Tools Section */
+.tools-section {
+    padding: 3rem 0;
+}
+
+.teachable-machine-container {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Single Post Page */
+.post-full {
+    background-color: var(--white);
+    margin-top: -1px; /* Overlap with header shadow */
+}
+
+.post-full-header {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.post-full-title {
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+
+.post-full-image {
+    text-align: center;
+    margin: 0;
+}
+
+.post-full-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.post-full-content {
+    padding: 3rem 0;
+}
+
+.post-body {
+    max-width: 700px;
+}
+
+.post-body h2 {
+    text-align: left;
+    font-size: 2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.post-body p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
