@@ -33,7 +33,17 @@
         </form>
     </div>
 
+    <div class="teachable-machine-container">
+        <h2>동물상 테스트</h2>
+        <div>Teachable Machine Image Model</div>
+        <button type="button" id="start-webcam-button">Start</button>
+        <div id="webcam-container"></div>
+        <div id="label-container"></div>
+    </div>
+
     <div id="disqus_thread"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
     <script>
         /**
         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.

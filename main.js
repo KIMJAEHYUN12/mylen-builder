@@ -44,4 +44,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial generation when the page loads
     displayLotteryNumbers(generateLotteryNumbers());
+
+
+    // Teachable Machine model logic
+    const URL = "https://teachablemachine.withgoogle.com/models/J3i5WvDds/";
+    let model, webcam, labelContainer, maxPredictions;
+
+    async function init() {
+        const modelURL = URL + "model.json";
+        const metadataURL = URL + "metadata.json";
+
+        model = await tmImage.load(modelURL, metadataURL);
+        maxPredictions = model.getTotalClasses();
+
+        const flip = true;
+        webcam = new tmImage.Webcam(200, 200, flip);
+        await webcam.setup();
+        await webcam.play();
+        window.requestAnimationFrame(loop);
+
+        document.getElementById("webcam-container").innerHTML = ''; // Clear existing content
+        document.getElementById("webcam-container").appendChild(webcam.canvas);
+        labelContainer = document.getElementById("label-container");
+        labelContainer.innerHTML = ''; // Clear existing content
+        for (let i = 0; i < maxPredictions; i++) {
+            labelContainer.appendChild(document.createElement("div"));
+        }
+    }
+
+    async function loop() {
+        webcam.update();
+        await predict();
+        window.requestAnimationFrame(loop);
+    }
+
+    async function predict() {
+        const prediction = await model.predict(webcam.canvas);
+        for (let i = 0; i < maxPredictions; i++) {
+            const classPrediction =
+                prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+            labelContainer.childNodes[i].innerHTML = classPrediction;
+        }
+    }
+
+    // Attach init to the new start button
+    const startWebcamButton = document.getElementById('start-webcam-button');
+    if (startWebcamButton) {
+        startWebcamButton.addEventListener('click', init);
+    }
 });
