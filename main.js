@@ -93,3 +93,5 @@ document.addEventListener('DOMContentLoaded', () => {
         startWebcamButton.addEventListener('click', init);
     }
 });
+
+// Triggering redeployment from Gemini CLI
